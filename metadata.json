@@ -1,0 +1,6 @@
+{
+  "name": "AIFRAN SPORTS | The international sports factory.",
+  "description": "AIFRAN SPORTS is a premier B2B manufacturing company supplying tactical gear, military equipment, sportswear, and OEM manufacturing services worldwide.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
