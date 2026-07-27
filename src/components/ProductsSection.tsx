@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PRODUCTS_DATA } from '../data/companyData';
-import { Layers, ArrowRight, FileText } from 'lucide-react';
+import { Search, SlidersHorizontal, ArrowRight } from 'lucide-react';
 
 interface ProductsSectionProps {
   onSelectProductForQuote: (productName: string) => void;
@@ -8,6 +8,7 @@ interface ProductsSectionProps {
 
 export const ProductsSection: React.FC<ProductsSectionProps> = ({ onSelectProductForQuote }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
   const categories = [
     'ALL',
@@ -19,95 +20,106 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({ onSelectProduc
     'Backpacks',
     'Pouches',
     'Morale Patches',
+    'K9 Equipment',
   ];
 
-  const filteredProducts =
-    selectedCategory === 'ALL'
-      ? PRODUCTS_DATA
-      : PRODUCTS_DATA.filter((p) => p.category.toLowerCase() === selectedCategory.toLowerCase());
+  const filteredProducts = PRODUCTS_DATA.filter((p) => {
+    const matchesCategory =
+      selectedCategory === 'ALL' || p.category.toLowerCase() === selectedCategory.toLowerCase();
+    const matchesSearch =
+      searchQuery === '' ||
+      p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.materials.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (p.specCode && p.specCode.toLowerCase().includes(searchQuery.toLowerCase())) ||
+      p.shortDescription.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   return (
-    <section id="products" className="py-20 bg-slate-50 text-slate-900 border-b border-slate-200">
+    <section id="products" className="py-16 sm:py-20 bg-slate-50 text-slate-900 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-200/80 text-slate-800 font-mono text-xs font-bold uppercase tracking-wider border border-slate-300">
-            <FileText className="w-3.5 h-3.5 text-amber-600" />
-            OEM B2B CATALOGUE & SPEC SHEETS
+        {/* Search Bar & Result Count Row (matches screenshot) */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-6">
+          {/* Search Input Box */}
+          <div className="relative w-full sm:w-80 lg:w-96">
+            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+            <input
+              type="text"
+              placeholder="Search products, materials, MIL specs..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200/90 rounded-xl text-xs font-['Inter'] text-slate-800 placeholder-slate-400 focus:outline-none focus:border-amber-500 shadow-xs"
+            />
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-extrabold font-['Sora'] tracking-tight text-slate-900 uppercase">
-            TACTICAL <span className="text-amber-600">PRODUCTS</span>
-          </h2>
-
-          <p className="text-slate-600 font-['Inter'] text-sm sm:text-base leading-relaxed">
-            Field-tested combat equipment manufactured under strict ISO and MIL-SPEC quality controls for global defense and private brands.
-          </p>
+          {/* Showing Count */}
+          <div className="flex items-center gap-2 text-[11px] font-mono font-extrabold uppercase tracking-wider text-slate-600 self-end sm:self-auto">
+            <SlidersHorizontal className="w-3.5 h-3.5 text-amber-600" />
+            <span>SHOWING {filteredProducts.length} OEM PRODUCT LINES</span>
+          </div>
         </div>
 
-        {/* Category Filter Pills (matching video 00:30 - 00:38) */}
-        <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto pb-4 mb-10 scrollbar-none">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs font-['Manrope'] font-extrabold uppercase tracking-wider whitespace-nowrap transition-all ${
-                selectedCategory === cat
-                  ? 'bg-amber-600 text-white shadow-md scale-105'
-                  : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-100'
-              }`}
-            >
-              {cat === 'ALL' ? 'ALL PRODUCTS' : cat.toUpperCase()}
-            </button>
-          ))}
+        {/* Category Filter Pills (matching screenshot) */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
+          {categories.map((cat) => {
+            const isActive = selectedCategory.toLowerCase() === cat.toLowerCase();
+            return (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-4 py-2 rounded-xl text-xs font-['Manrope'] font-extrabold uppercase tracking-wider whitespace-nowrap transition-all ${
+                  isActive
+                    ? 'bg-[#EA580C] text-white shadow-sm'
+                    : 'bg-white text-slate-700 border border-slate-200/90 hover:bg-slate-100'
+                }`}
+              >
+                {cat === 'ALL' ? 'ALL' : cat.toUpperCase()}
+              </button>
+            );
+          })}
         </div>
 
-        {/* Product Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Product Cards Grid (matching screenshot) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredProducts.map((product) => (
             <div
               key={product.id}
-              className="bg-slate-900 rounded-2xl border border-slate-800 shadow-xl overflow-hidden flex flex-col group transition-all duration-300 hover:border-amber-500/50 hover:-translate-y-1"
+              className="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
             >
-              {/* Image Container with Dark Gradient Overlay */}
-              <div className="relative h-64 overflow-hidden bg-slate-950">
+              {/* Image Container with Title overlayed at bottom */}
+              <div className="relative h-64 sm:h-72 overflow-hidden bg-slate-900">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
 
-                <div className="absolute top-3 left-3 bg-amber-500 text-[#0B0B0B] text-[10px] font-mono font-extrabold px-2.5 py-1 rounded uppercase tracking-wider shadow">
+                <div className="absolute top-3 left-3 bg-amber-600 text-white text-[10px] font-mono font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider shadow-xs">
                   {product.specCode || product.category}
                 </div>
 
-                <div className="absolute bottom-3 left-3 right-3 text-white space-y-1">
-                  <h3 className="text-base font-extrabold font-['Sora'] uppercase tracking-tight text-white group-hover:text-amber-400 transition-colors">
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <h3 className="text-base sm:text-lg font-black font-['Sora'] uppercase tracking-tight text-white leading-tight drop-shadow-sm">
                     {product.name}
                   </h3>
                 </div>
               </div>
 
               {/* Card Body */}
-              <div className="p-5 flex-1 flex flex-col justify-between space-y-4 font-['Inter'] text-slate-300 bg-slate-900">
-                <p className="text-xs text-slate-300 leading-relaxed line-clamp-3">
+              <div className="p-5 flex-1 flex flex-col justify-between space-y-4 font-['Inter'] bg-white">
+                <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
                   {product.shortDescription}
                 </p>
 
-                {/* Specs & Material Footer */}
-                <div className="pt-3 border-t border-slate-800 space-y-3 font-mono text-xs">
-                  <div className="text-[11px] text-slate-400 flex items-start gap-1.5">
-                    <Layers className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
-                    <span className="line-clamp-2"><strong>SPEC:</strong> {product.materials}</span>
-                  </div>
-
+                {/* Card Footer Button */}
+                <div className="pt-3 border-t border-slate-100 font-mono text-xs">
                   <button
                     onClick={() => onSelectProductForQuote(product.name)}
-                    className="w-full py-2.5 rounded-xl bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-['Manrope'] font-extrabold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 group/btn"
+                    className="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-['Manrope'] font-extrabold text-xs uppercase tracking-wider transition-all shadow-xs flex items-center justify-center gap-2 group/btn"
                   >
                     <span>REQUEST RFQ</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform text-amber-400" />
                   </button>
                 </div>
               </div>

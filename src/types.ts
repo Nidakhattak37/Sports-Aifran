@@ -35,6 +35,7 @@ export interface TimelineMilestone {
   label: string;
   title: string;
   description: string;
+  bulletPoint?: string;
 }
 
 export interface IndustryServe {

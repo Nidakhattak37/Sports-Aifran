@@ -29,16 +29,13 @@ export const CertificationsSection: React.FC = () => {
               key={cert.id}
               className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all space-y-4 group font-['Inter']"
             >
-              <div className="flex items-center justify-between">
-                <div className="p-3 rounded-xl bg-amber-50 text-amber-600 border border-amber-200">
+              <div>
+                <div className="p-3 rounded-xl bg-amber-50 text-amber-600 border border-amber-200 w-fit">
                   <Award className="w-6 h-6 stroke-[2]" />
                 </div>
-                <span className="text-[10px] font-mono font-bold uppercase px-2.5 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">
-                  {cert.badgeText}
-                </span>
               </div>
 
-              <h3 className="text-lg font-extrabold font-['Sora'] text-slate-900 uppercase group-hover:text-amber-600 transition-colors">
+              <h3 className="text-base font-extrabold font-['Sora'] text-slate-900 uppercase group-hover:text-amber-600 transition-colors">
                 {cert.title}
               </h3>
 

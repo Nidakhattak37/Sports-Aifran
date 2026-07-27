@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Mail, Phone, ExternalLink } from 'lucide-react';
+import { Shield, Mail, Phone, MapPin, ExternalLink, Linkedin, Instagram } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const scrollToSection = (id: string) => {
@@ -8,99 +8,131 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#0B0B0B] text-slate-400 font-['Inter'] text-xs border-t border-slate-800 pt-16 pb-12">
+    <footer className="bg-[#04070D] text-slate-400 font-['Inter'] text-xs border-t border-slate-800/80 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 space-y-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          
           {/* Brand Info */}
-          <div className="lg:col-span-5 space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-[#0B0B0B] font-extrabold text-lg shadow-md">
-                <Shield className="w-5 h-5 text-[#0B0B0B] stroke-[2.5]" />
+          <div className="lg:col-span-5 space-y-5">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-[#0A0F1D] border border-slate-800 flex items-center justify-center text-[#EA580C] shadow-md">
+                <Shield className="w-5 h-5 stroke-[2.5]" />
               </div>
               <div>
                 <span className="text-xl font-extrabold tracking-wider text-white font-['Sora'] block leading-none">
-                  AIFRAN<span className="text-amber-500">.</span>SPORTS
+                  AIFRAN <span className="text-[#84A93C]">SPORTS</span>
                 </span>
-                <span className="text-[10px] text-slate-400 font-mono tracking-widest uppercase block mt-0.5">
-                  The international sports factory
+                <span className="text-[9px] text-slate-400 font-mono tracking-widest uppercase block mt-1 font-bold">
+                  CUT • SEW • MANUFACTURE
                 </span>
               </div>
             </div>
 
-            <p className="text-slate-400 leading-relaxed text-xs max-w-md">
-              AIFRAN SPORTS is a trusted B2B OEM / ODM tactical and athletic equipment manufacturer supplying defense forces, security organizations, and international apparel brands worldwide.
+            <p className="text-slate-400 leading-relaxed text-xs max-w-md font-['Inter']">
+              A premier B2B OEM manufacturing supplier of tactical gear, combat apparel, military gloves, and duty equipment supplying international defense contractors and private labels worldwide.
             </p>
 
-            <div className="flex flex-col gap-1.5 font-['Manrope'] text-xs text-slate-300">
-              <a href="tel:+923008615422" className="hover:text-amber-400 transition-colors flex items-center gap-1.5">
-                <Phone className="w-3.5 h-3.5 text-amber-500" /> +92 300 861 5422
+            {/* Social Icons */}
+            <div className="flex items-center gap-2.5 pt-1">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="w-9 h-9 rounded-lg bg-[#0A0F1D] border border-slate-800 flex items-center justify-center text-slate-300 hover:text-[#EA580C] hover:border-slate-700 transition-colors"
+              >
+                <Linkedin className="w-4 h-4" />
               </a>
-              <a href="mailto:aifransportsllc@gmail.com" className="hover:text-amber-400 transition-colors flex items-center gap-1.5">
-                <Mail className="w-3.5 h-3.5 text-amber-500" /> aifransportsllc@gmail.com
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-9 h-9 rounded-lg bg-[#0A0F1D] border border-slate-800 flex items-center justify-center text-slate-300 hover:text-[#EA580C] hover:border-slate-700 transition-colors"
+              >
+                <Instagram className="w-4 h-4" />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="lg:col-span-3 space-y-3 font-['Manrope']">
-            <h4 className="text-white font-bold text-xs uppercase tracking-wider font-['Sora']">
-              Quick Navigation
+          {/* Quick Navigation */}
+          <div className="lg:col-span-3 space-y-4 font-mono">
+            <h4 className="text-[#84A93C] font-bold text-xs uppercase tracking-widest font-mono">
+              QUICK NAVIGATION
             </h4>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2.5 text-xs text-slate-400">
               <li>
-                <button onClick={() => scrollToSection('about')} className="hover:text-amber-400 transition-colors">
-                  About Us & Heritage
+                <button onClick={() => scrollToSection('about')} className="hover:text-white transition-colors text-left">
+                  Company Story
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('capabilities')} className="hover:text-amber-400 transition-colors">
+                <button onClick={() => scrollToSection('capabilities')} className="hover:text-white transition-colors text-left">
                   Manufacturing Capabilities
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('products')} className="hover:text-amber-400 transition-colors">
-                  Tactical & Sports Products
+                <button onClick={() => scrollToSection('products')} className="hover:text-white transition-colors text-left">
+                  Tactical Product Catalog
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('quality')} className="hover:text-amber-400 transition-colors">
-                  Six-Stage Quality Control
+                <button onClick={() => scrollToSection('quality')} className="hover:text-white transition-colors text-left">
+                  Quality Assurance Protocol
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('industries')} className="hover:text-amber-400 transition-colors">
+                <button onClick={() => scrollToSection('industries')} className="hover:text-white transition-colors text-left">
                   Industries We Serve
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('certifications')} className="hover:text-amber-400 transition-colors">
-                  Factory Certifications
+                <button onClick={() => scrollToSection('contact')} className="hover:text-white transition-colors text-left">
+                  Request B2B RFQ
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Product Categories */}
-          <div className="lg:col-span-4 space-y-3 font-['Manrope']">
-            <h4 className="text-white font-bold text-xs uppercase tracking-wider font-['Sora']">
-              Product Categories
+          {/* Headquarters & Desk */}
+          <div className="lg:col-span-4 space-y-4 font-mono">
+            <h4 className="text-[#84A93C] font-bold text-xs uppercase tracking-widest font-mono">
+              HEADQUARTERS & DESK
             </h4>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs">
-              <span>• Tactical Gloves</span>
-              <span>• Combat Uniforms</span>
-              <span>• Tactical Pants</span>
-              <span>• Duty Belts</span>
-              <span>• Headwear</span>
-              <span>• Backpacks & Gear</span>
-              <span>• Modular Pouches</span>
-              <span>• Morale Patches</span>
-              <span>• K9 Equipment</span>
-              <span>• Custom OEM / ODM</span>
+            
+            <div className="space-y-3 text-xs">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-[#EA580C] shrink-0 mt-0.5" />
+                <span className="text-slate-300 leading-snug">
+                  Plot 42-A, Small Industrial Estate #2, Sialkot 51310, Punjab, Pakistan
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2.5">
+                <Mail className="w-4 h-4 text-[#EA580C] shrink-0" />
+                <a
+                  href="mailto:aifransportsllc@gmail.com"
+                  className="text-white font-bold hover:text-[#EA580C] transition-colors"
+                >
+                  aifransportsllc@gmail.com
+                </a>
+              </div>
+
+              <div className="flex items-center gap-2.5">
+                <Phone className="w-4 h-4 text-[#EA580C] shrink-0" />
+                <a
+                  href="tel:+923008615422"
+                  className="text-white font-bold hover:text-[#EA580C] transition-colors"
+                >
+                  +92 300 861 5422
+                </a>
+              </div>
             </div>
           </div>
+
         </div>
 
-        {/* Bottom Bar with exact required copyright & attribution */}
+        {/* Bottom Bar */}
         <div className="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px] font-mono">
           <div>
             © 1995–2026 AIFRAN SPORTS LLC. All Rights Reserved.
@@ -112,9 +144,9 @@ export const Footer: React.FC = () => {
               href="https://twofolds.tech/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-amber-400 hover:text-amber-300 transition-colors underline inline-flex items-center gap-0.5"
+              className="text-slate-300 hover:text-white transition-colors font-bold underline inline-flex items-center gap-1"
             >
-              twofolds.tech <ExternalLink className="w-3 h-3" />
+              twofolds.tech
             </a>
           </div>
         </div>
