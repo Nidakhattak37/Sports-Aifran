@@ -1,54 +1,41 @@
 import React, { useState } from 'react';
 import { TIMELINE_DATA } from '../data/companyData';
 import { MapPin, Tag, CheckCircle2, Award } from 'lucide-react';
-import { motion } from 'motion/react';
 import factoryAssemblyImg from '../assets/images/about_factory_line_1785148204676.jpg';
 
 export const AboutSection: React.FC = () => {
-  const [activeMilestoneIndex, setActiveMilestoneIndex] = useState<number>(0);
+  const [activeMilestoneIndex, setActiveMilestoneIndex] = useState<number>(0); // Default to 1995 as in screenshot
 
   const currentMilestone = TIMELINE_DATA[activeMilestoneIndex];
 
   return (
-    <section id="about" className="py-16 sm:py-20 bg-white text-slate-900 border-b border-slate-200 overflow-hidden">
+    <section id="about" className="py-16 sm:py-20 bg-white text-slate-900 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-12 sm:mb-14 space-y-3"
-        >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 text-slate-800 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider border border-slate-200/80 shadow-xs max-w-full flex-wrap">
-            <MapPin className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 text-slate-800 font-mono text-xs font-bold uppercase tracking-wider border border-slate-200/80 shadow-xs">
+            <MapPin className="w-3.5 h-3.5 text-amber-600" />
             <span>ESTABLISHED 1995 • SIALKOT, PAKISTAN</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black font-['Sora'] tracking-tight text-slate-900 uppercase break-words leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-black font-['Sora'] tracking-tight text-slate-900 uppercase">
             ABOUT <span className="text-[#84A93C]">AIFRAN SPORTS</span>
           </h2>
 
           <p className="text-slate-600 font-['Inter'] text-xs sm:text-base leading-relaxed">
             A three-decade legacy of precision stitching, military-grade textile innovation, and global OEM supply excellence.
           </p>
-        </motion.div>
+        </div>
 
         {/* 2-Column Split Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           {/* Left Column: Sialkot Workshop Story & Interactive Timeline */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="lg:col-span-7 space-y-6"
-          >
+          <div className="lg:col-span-7 space-y-6">
             {/* Top Box: Sialkot Workshop Story */}
-            <div className="bg-[#F8FAF9] p-5 sm:p-7 rounded-2xl border border-slate-200/90 shadow-md sm:shadow-lg shadow-slate-200/80 space-y-3.5">
+            <div className="bg-[#F8FAF9] p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-xs space-y-3.5">
               <div className="flex items-start gap-2 text-slate-900">
                 <MapPin className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-                <h3 className="text-base sm:text-xl font-extrabold font-['Sora'] uppercase tracking-tight leading-snug break-words">
+                <h3 className="text-lg sm:text-xl font-extrabold font-['Sora'] uppercase tracking-tight leading-snug">
                   FROM SIALKOT WORKSHOP TO GLOBAL OEM PARTNER
                 </h3>
               </div>
@@ -70,7 +57,7 @@ export const AboutSection: React.FC = () => {
               </div>
 
               {/* 5 Horizontal Tabs */}
-              <div className="grid grid-cols-5 gap-1 sm:gap-1.5 bg-slate-100 p-1.5 rounded-xl border border-slate-200/80 overflow-x-auto">
+              <div className="grid grid-cols-5 gap-1.5 bg-slate-100 p-1.5 rounded-xl border border-slate-200/80">
                 {TIMELINE_DATA.map((milestone, idx) => {
                   const isActive = activeMilestoneIndex === idx;
                   return (
@@ -93,8 +80,8 @@ export const AboutSection: React.FC = () => {
               </div>
 
               {/* Active Milestone Card Box */}
-              <div className="p-5 sm:p-6 rounded-2xl bg-[#F8FAF9] border border-slate-200/90 shadow-md shadow-slate-200/60 space-y-2.5">
-                <div className="flex justify-between items-center flex-wrap gap-2">
+              <div className="p-5 sm:p-6 rounded-2xl bg-[#F8FAF9] border border-slate-200/80 space-y-2.5 shadow-xs">
+                <div className="flex justify-between items-center">
                   <span className="text-xs font-mono font-extrabold uppercase tracking-wider text-[#EA580C]">
                     YEAR {currentMilestone.year}
                   </span>
@@ -103,7 +90,7 @@ export const AboutSection: React.FC = () => {
                   </span>
                 </div>
 
-                <h4 className="text-base sm:text-lg font-extrabold font-['Sora'] text-slate-900 uppercase tracking-tight break-words">
+                <h4 className="text-base sm:text-lg font-extrabold font-['Sora'] text-slate-900 uppercase tracking-tight">
                   {currentMilestone.title}
                 </h4>
 
@@ -119,19 +106,13 @@ export const AboutSection: React.FC = () => {
                 )}
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Family-Owned Heritage Photo Card & Stat Cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:col-span-5 space-y-5"
-          >
+          <div className="lg:col-span-5 space-y-5">
             {/* Main Factory Image Card */}
-            <div className="bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-md sm:shadow-lg shadow-slate-200/80 group relative">
-              <div className="relative h-56 sm:h-72 overflow-hidden bg-slate-100">
+            <div className="bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm group relative">
+              <div className="relative h-64 sm:h-72 overflow-hidden bg-slate-100">
                 <img
                   src={factoryAssemblyImg}
                   alt="Sialkot Factory Assembly Line"
@@ -140,14 +121,14 @@ export const AboutSection: React.FC = () => {
               </div>
 
               {/* Floating Bottom Card */}
-              <div className="p-4 bg-white border-t border-slate-100 flex items-center justify-between gap-2">
+              <div className="p-4 bg-white border-t border-slate-100 flex items-center justify-between">
                 <div>
                   <h4 className="text-xs font-extrabold font-['Sora'] text-slate-900 uppercase tracking-wider">
                     FAMILY-OWNED HERITAGE
                   </h4>
                   <div className="text-[11px] font-mono text-slate-500 flex items-center gap-1.5 mt-0.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
-                    <span className="break-words">Sialkot Assembly Line • Active Production</span>
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>Sialkot Factory Assembly Line • Active Production</span>
                   </div>
                 </div>
 
@@ -157,30 +138,29 @@ export const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Stat Cards Grid */}
+            {/* Stat Cards Grid (2 side-by-side cards) */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-[#F8FAF9] p-4 sm:p-5 rounded-2xl border border-slate-200/90 shadow-md shadow-slate-200/70 text-center space-y-1">
-                <div className="text-lg sm:text-2xl font-black font-['Sora'] text-[#EA580C] break-words">
+              <div className="bg-[#F8FAF9] p-5 rounded-2xl border border-slate-200/80 shadow-xs text-center space-y-1">
+                <div className="text-xl sm:text-2xl font-black font-['Sora'] text-[#EA580C]">
                   65,000 SQ FT
                 </div>
-                <div className="text-[9px] sm:text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">
+                <div className="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">
                   MANUFACTURING FACILITY
                 </div>
               </div>
 
-              <div className="bg-[#F8FAF9] p-4 sm:p-5 rounded-2xl border border-slate-200/90 shadow-md shadow-slate-200/70 text-center space-y-1">
-                <div className="text-lg sm:text-2xl font-black font-['Sora'] text-[#84A93C] break-words">
+              <div className="bg-[#F8FAF9] p-5 rounded-2xl border border-slate-200/80 shadow-xs text-center space-y-1">
+                <div className="text-xl sm:text-2xl font-black font-['Sora'] text-[#84A93C]">
                   350+ SKILLED
                 </div>
-                <div className="text-[9px] sm:text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">
+                <div className="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">
                   CRAFTSMEN & ENGINEERS
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
   );
 };
-

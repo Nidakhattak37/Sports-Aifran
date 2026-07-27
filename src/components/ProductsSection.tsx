@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { PRODUCTS_DATA } from '../data/companyData';
 import { Search, SlidersHorizontal, ArrowRight } from 'lucide-react';
-import { motion } from 'motion/react';
 
 interface ProductsSectionProps {
   onSelectProductForQuote: (productName: string) => void;
@@ -37,9 +36,9 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({ onSelectProduc
   });
 
   return (
-    <section id="products" className="py-16 sm:py-20 bg-slate-50 text-slate-900 border-b border-slate-200 overflow-hidden">
+    <section id="products" className="py-16 sm:py-20 bg-slate-50 text-slate-900 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        {/* Search Bar & Result Count Row */}
+        {/* Search Bar & Result Count Row (matches screenshot) */}
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mb-6">
           {/* Search Input Box */}
           <div className="relative w-full sm:w-80 lg:w-96">
@@ -49,26 +48,26 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({ onSelectProduc
               placeholder="Search products, materials, MIL specs..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200/90 rounded-xl text-xs font-['Inter'] text-slate-800 placeholder-slate-400 focus:outline-none focus:border-amber-500 shadow-sm"
+              className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200/90 rounded-xl text-xs font-['Inter'] text-slate-800 placeholder-slate-400 focus:outline-none focus:border-amber-500 shadow-xs"
             />
           </div>
 
           {/* Showing Count */}
-          <div className="flex items-center gap-2 text-[11px] font-mono font-extrabold uppercase tracking-wider text-slate-600 self-start sm:self-auto">
-            <SlidersHorizontal className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+          <div className="flex items-center gap-2 text-[11px] font-mono font-extrabold uppercase tracking-wider text-slate-600 self-end sm:self-auto">
+            <SlidersHorizontal className="w-3.5 h-3.5 text-amber-600" />
             <span>SHOWING {filteredProducts.length} OEM PRODUCT LINES</span>
           </div>
         </div>
 
-        {/* Category Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none max-w-full">
+        {/* Category Filter Pills (matching screenshot) */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
           {categories.map((cat) => {
             const isActive = selectedCategory.toLowerCase() === cat.toLowerCase();
             return (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-xl text-xs font-['Manrope'] font-extrabold uppercase tracking-wider whitespace-nowrap transition-all shrink-0 ${
+                className={`px-4 py-2 rounded-xl text-xs font-['Manrope'] font-extrabold uppercase tracking-wider whitespace-nowrap transition-all ${
                   isActive
                     ? 'bg-[#EA580C] text-white shadow-sm'
                     : 'bg-white text-slate-700 border border-slate-200/90 hover:bg-slate-100'
@@ -80,19 +79,15 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({ onSelectProduc
           })}
         </div>
 
-        {/* Product Cards Grid */}
+        {/* Product Cards Grid (matching screenshot) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filteredProducts.map((product, idx) => (
-            <motion.div
+          {filteredProducts.map((product) => (
+            <div
               key={product.id}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="bg-white rounded-2xl border border-slate-200/90 shadow-md sm:shadow-lg shadow-slate-200/80 overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              className="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
             >
               {/* Image Container with Title overlayed at bottom */}
-              <div className="relative h-60 sm:h-72 overflow-hidden bg-slate-900">
+              <div className="relative h-64 sm:h-72 overflow-hidden bg-slate-900">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -105,7 +100,7 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({ onSelectProduc
                 </div>
 
                 <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <h3 className="text-base sm:text-lg font-black font-['Sora'] uppercase tracking-tight text-white leading-tight drop-shadow-sm break-words">
+                  <h3 className="text-base sm:text-lg font-black font-['Sora'] uppercase tracking-tight text-white leading-tight drop-shadow-sm">
                     {product.name}
                   </h3>
                 </div>
@@ -128,11 +123,10 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({ onSelectProduc
                   </button>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
 };
-
