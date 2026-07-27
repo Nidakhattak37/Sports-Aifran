@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, FileText, Shield, Award, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, FileText, Shield, Globe2, Settings } from 'lucide-react';
 
 interface HeroProps {
   onOpenCatalog: () => void;
@@ -22,123 +22,101 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCatalog }) => {
   };
 
   return (
-    <section className="relative min-h-screen pt-28 pb-16 bg-[#0B0B0B] text-white overflow-hidden flex items-center justify-center border-b border-slate-800">
+    <section className="relative min-h-[90vh] pt-28 pb-16 bg-[#0B0B0B] text-white overflow-hidden flex items-center justify-center border-b border-slate-800">
       {/* Interactive Mouse Spotlight Glowing Effect */}
       <div
-        className="pointer-events-none absolute inset-0 z-0 opacity-40 transition-opacity duration-300"
+        className="pointer-events-none absolute inset-0 z-0 opacity-30 transition-opacity duration-300"
         style={{
-          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(234, 88, 12, 0.15), rgba(75, 85, 38, 0.15), transparent 80%)`,
+          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(234, 88, 12, 0.12), rgba(130, 169, 60, 0.12), transparent 80%)`,
         }}
       />
 
-      {/* Ambient Radial Lights */}
-      <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#6B7A3D]/20 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-1/4 right-10 w-[500px] h-[500px] bg-[#EA580C]/15 rounded-full blur-3xl pointer-events-none"></div>
+      {/* Ambient Background Glows */}
+      <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#84A93C]/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-10 w-[500px] h-[500px] bg-[#EA580C]/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 w-full z-10 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left Column: Headline, Tagline & CTAs */}
           <div className="lg:col-span-7 space-y-6 text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-amber-500/30 text-amber-400 font-mono text-xs uppercase tracking-widest">
+            {/* Top Pill Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 text-amber-500 font-mono text-[11px] font-bold uppercase tracking-wider">
               <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-              GLOBAL B2B OEM / ODM TACTICAL MANUFACTURER
+              B2B TACTICAL GEAR & MILITARY OEM SUPPLIER
             </div>
 
-            <div className="space-y-3">
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold font-['Sora'] leading-none tracking-tight text-white">
-                Tactical Manufacturing <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500">Solutions</span>
+            {/* Main Headline */}
+            <div className="space-y-2">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-['Sora'] leading-[1.02] tracking-tight uppercase text-white">
+                TACTICAL<br />
+                MANUFACTURING<br />
+                <span className="text-[#84A93C]">SOLUTIONS</span>
               </h1>
 
-              <div className="text-lg sm:text-2xl font-extrabold font-['Space_Grotesk'] text-amber-500 tracking-widest uppercase">
+              {/* Sub-tagline */}
+              <div className="text-amber-500 font-extrabold tracking-[0.2em] text-xs sm:text-sm font-['Space_Grotesk'] uppercase pt-1">
                 CUT • SEW • MANUFACTURE
               </div>
             </div>
 
-            <p className="text-slate-300 font-['Inter'] text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
+            {/* Description Paragraph */}
+            <p className="text-slate-300 font-['Inter'] text-sm sm:text-base leading-relaxed max-w-xl font-normal">
               From a small workshop in Sialkot to a trusted manufacturing partner for global brands and government organizations. Our journey is built on passion, precision and a commitment to quality that runs in our family.
             </p>
 
             {/* CTAs */}
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-wrap items-center gap-4">
               <button
                 onClick={scrollToContact}
-                className="px-8 py-4 rounded-xl bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-['Manrope'] font-extrabold text-sm uppercase tracking-wider transition-all shadow-[0_0_25px_rgba(234,88,12,0.4)] hover:shadow-[0_0_35px_rgba(234,88,12,0.6)] flex items-center gap-2 group"
+                className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-['Manrope'] font-extrabold text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(234,88,12,0.3)] hover:shadow-[0_0_30px_rgba(234,88,12,0.5)] flex items-center gap-2 group"
               >
-                <span>Get a Quote</span>
+                <span>GET A QUOTE</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
 
               <button
                 onClick={onOpenCatalog}
-                className="px-8 py-4 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-100 border border-slate-700 hover:border-amber-500/50 font-['Manrope'] font-bold text-sm tracking-wide transition-all flex items-center gap-2"
+                className="px-7 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700/80 hover:border-amber-500/50 font-['Manrope'] font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2"
               >
-                <FileText className="w-4 h-4 text-amber-400" />
-                <span>View Catalog</span>
+                <FileText className="w-4 h-4 text-amber-500" />
+                <span>VIEW CATALOG</span>
               </button>
             </div>
 
-            {/* Key Trust Metrics */}
-            <div className="pt-8 grid grid-cols-3 gap-4 border-t border-slate-800/80 font-['Space_Grotesk']">
-              <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-white">1995</div>
-                <div className="text-xs text-slate-400 font-sans uppercase">Sialkot Legacy</div>
+            {/* Bottom Trust Badges */}
+            <div className="pt-6 border-t border-slate-800/80 flex flex-wrap items-center gap-6 text-[11px] font-mono text-slate-400 uppercase tracking-wider font-semibold">
+              <div className="flex items-center gap-2">
+                <Shield className="w-4 h-4 text-amber-500 shrink-0" />
+                <span>SMETA & BSCI AUDITED</span>
               </div>
-              <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-amber-400">45+</div>
-                <div className="text-xs text-slate-400 font-sans uppercase">Export Countries</div>
+              <div className="flex items-center gap-2">
+                <Globe2 className="w-4 h-4 text-amber-500 shrink-0" />
+                <span>EXPORTING TO 45+ COUNTRIES</span>
               </div>
-              <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-emerald-400">100%</div>
-                <div className="text-xs text-slate-400 font-sans uppercase">Quality Assured</div>
+              <div className="flex items-center gap-2">
+                <Settings className="w-4 h-4 text-amber-500 shrink-0" />
+                <span>1.5M+ ANNUAL UNIT OUTPUT</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Stylized Football Graphic Icon & Rings */}
+          {/* Right Column: Circular Champions League Soccer Ball Image Frame */}
           <div className="lg:col-span-5 flex justify-center items-center relative">
             <div className="relative w-72 h-72 sm:w-96 sm:h-96 flex items-center justify-center">
-              {/* Outer Pulsing Orbit Rings */}
-              <div className="absolute inset-0 rounded-full border border-amber-500/20 animate-spin-slow"></div>
-              <div className="absolute inset-4 rounded-full border border-slate-700/60"></div>
-              <div className="absolute inset-8 rounded-full border border-dashed border-amber-500/30 animate-reverse-spin"></div>
+              {/* Radial glow background */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-amber-500/10 via-[#84A93C]/10 to-orange-500/10 blur-2xl"></div>
 
-              {/* Glowing Center Shield Backdrop */}
-              <div className="w-56 h-56 sm:w-72 sm:h-72 rounded-full bg-gradient-to-tr from-amber-950/80 via-slate-900 to-emerald-950/80 border border-amber-500/40 shadow-[0_0_50px_rgba(234,88,12,0.25)] flex flex-col items-center justify-center p-6 text-center z-10">
-                {/* Football / Sports Graphic Icon */}
-                <svg
-                  className="w-24 h-24 sm:w-32 sm:h-32 text-amber-500 mb-2 filter drop-shadow-[0_0_15px_rgba(234,88,12,0.5)]"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                  <path d="M2 12h20" />
-                  <path d="M12 2v20" />
-                  <path d="M4.93 4.93l14.14 14.14" />
-                  <path d="M4.93 19.07l14.14-14.14" />
-                </svg>
+              {/* Outer decorative ring */}
+              <div className="absolute inset-0 rounded-full border border-slate-800"></div>
 
-                <div className="font-['Sora'] font-extrabold text-xs sm:text-sm tracking-wider uppercase text-slate-100">
-                  AIFRAN SPORTS
-                </div>
-                <div className="text-[10px] font-mono text-amber-400 tracking-widest uppercase">
-                  MIL-SPEC & ATHLETIC EXCELLENCE
-                </div>
-              </div>
-
-              {/* Floating Badges around the Football Icon */}
-              <div className="absolute -top-2 left-4 bg-slate-900/90 border border-slate-700 px-3 py-1.5 rounded-lg text-xs font-mono text-slate-200 shadow-xl flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                <span>ISO Certified</span>
-              </div>
-
-              <div className="absolute -bottom-2 right-4 bg-slate-900/90 border border-slate-700 px-3 py-1.5 rounded-lg text-xs font-mono text-slate-200 shadow-xl flex items-center gap-1.5">
-                <Award className="w-3.5 h-3.5 text-amber-400" />
-                <span>Global OEM</span>
+              {/* Main Circular Image Frame */}
+              <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full p-2 bg-gradient-to-b from-slate-700/50 via-slate-800/60 to-slate-950 border border-slate-700/80 shadow-[0_0_60px_rgba(0,0,0,0.8)] relative z-10 overflow-hidden group">
+                <img
+                  src="https://images.unsplash.com/photo-1614632537197-38a17061c2bd?auto=format&fit=crop&q=80&w=800"
+                  alt="AIFRAN SPORTS Football & Manufacturing"
+                  className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 rounded-full shadow-[inset_0_0_40px_rgba(0,0,0,0.7)] pointer-events-none"></div>
               </div>
             </div>
           </div>

@@ -1,97 +1,150 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TIMELINE_DATA } from '../data/companyData';
-import { Shield, Building2, Globe2, Award, Check } from 'lucide-react';
+import { Award, Factory, Users, Building } from 'lucide-react';
 
 export const AboutSection: React.FC = () => {
+  const [activeMilestoneIndex, setActiveMilestoneIndex] = useState<number>(2); // Default to 2012 Tactical Manufacturing as in video
+
+  const currentMilestone = TIMELINE_DATA[activeMilestoneIndex];
+
   return (
     <section id="about" className="py-20 bg-slate-50 text-slate-900 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-200 text-slate-800 font-mono text-xs font-bold uppercase tracking-wider">
-            <Building2 className="w-3.5 h-3.5 text-amber-600" /> HERITAGE & MANUFACTURING EXCELLENCE
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-200/80 text-slate-800 font-mono text-xs font-bold uppercase tracking-wider border border-slate-300">
+            <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+            ESTABLISHED 1995 • SIALKOT, PAKISTAN
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold font-['Sora'] tracking-tight text-slate-900">
+
+          <h2 className="text-3xl sm:text-5xl font-extrabold font-['Sora'] tracking-tight text-slate-900 uppercase">
             About <span className="text-amber-600">AIFRAN SPORTS</span>
           </h2>
-          <p className="text-slate-600 font-['Inter'] text-base leading-relaxed">
-            Crafting premium tactical gear, combat apparel, and OEM sportswear solutions from Sialkot to world-class defense forces and international brands.
+
+          <p className="text-slate-600 font-['Inter'] text-sm sm:text-base leading-relaxed">
+            A three-decade legacy of precision stitching, military-grade textile innovation, and global OEM supply excellence.
           </p>
         </div>
 
-        {/* Split Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left Column: Story & Key Strengths */}
-          <div className="lg:col-span-6 space-y-6">
-            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-              <h3 className="text-2xl font-bold font-['Sora'] text-slate-900">
-                Our Sialkot Heritage & Global Footprint
+        {/* Split Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          {/* Left Column: Sialkot Workshop Story & Interactive Timeline */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+              <h3 className="text-xl sm:text-2xl font-extrabold font-['Sora'] text-slate-900 uppercase tracking-tight">
+                FROM SIALKOT WORKSHOP TO GLOBAL OEM PARTNER
               </h3>
+
               <p className="text-slate-600 font-['Inter'] text-sm leading-relaxed">
-                Founded in 1995 in Sialkot, Pakistan—the world’s premier sporting goods and leather craftsmanship hub—AIFRAN SPORTS has evolved from a specialized glove workshop into a modern 65,000+ sq. ft. OEM/ODM manufacturing facility.
-              </p>
-              <p className="text-slate-600 font-['Inter'] text-sm leading-relaxed">
-                We combine traditional artisanal craftsmanship with state-of-the-art automated laser cutting, CNC mold making, and seam-sealing technology. Today, we proudly serve military organizations, law enforcement agencies, private security firms, and leading international retail brands across 45+ countries.
+                The renowned industrial manufacturing hub of Sialkot, AIFRAN SPORTS specialized leather and glove craftsmanship workshop. Through investment in heavy-duty automated machinery, laser cutting and military-grade textiles, we have evolved into a Tier-1 OEM partner.
               </p>
 
-              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-100 font-['Manrope']">
-                <div className="flex items-start gap-2.5">
-                  <div className="p-1.5 rounded bg-emerald-100 text-emerald-700">
-                    <Check className="w-4 h-4 stroke-[3]" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-xs text-slate-900 uppercase">65,000 SQ FT</h4>
-                    <span className="text-xs text-slate-500">Production Facility</span>
-                  </div>
+              <p className="text-slate-600 font-['Inter'] text-sm leading-relaxed">
+                65,000 sq ft facility produces combat gear, tactical uniforms, duty belts, and accessories trusted by defense forces, law enforcement agencies, and tactical apparel brands across 45+ countries.
+              </p>
+
+              {/* Timeline Header */}
+              <div className="pt-4 border-t border-slate-100">
+                <div className="text-xs font-mono font-bold uppercase text-slate-500 tracking-wider mb-3">
+                  THE JOURNEY (1995 - TODAY)
                 </div>
 
-                <div className="flex items-start gap-2.5">
-                  <div className="p-1.5 rounded bg-amber-100 text-amber-700">
-                    <Globe2 className="w-4 h-4 stroke-[3]" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-xs text-slate-900 uppercase">45+ COUNTRIES</h4>
-                    <span className="text-xs text-slate-500">Worldwide Exports</span>
-                  </div>
+                {/* Horizontal Timeline Tabs Bar */}
+                <div className="grid grid-cols-5 gap-1.5 bg-slate-100 p-1.5 rounded-xl border border-slate-200">
+                  {TIMELINE_DATA.map((milestone, idx) => {
+                    const isActive = activeMilestoneIndex === idx;
+                    return (
+                      <button
+                        key={milestone.year}
+                        onClick={() => setActiveMilestoneIndex(idx)}
+                        className={`py-2 px-1 rounded-lg text-center transition-all ${
+                          isActive
+                            ? 'bg-amber-600 text-white font-extrabold shadow-md scale-[1.02]'
+                            : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 font-semibold'
+                        }`}
+                      >
+                        <div className="text-xs sm:text-sm font-['Sora']">{milestone.year}</div>
+                        <div className={`text-[9px] truncate hidden sm:block ${isActive ? 'text-amber-100' : 'text-slate-500'}`}>
+                          {milestone.label}
+                        </div>
+                      </button>
+                    );
+                  })}
                 </div>
-              </div>
-            </div>
 
-            {/* Sialkot Facility Assembly Photo */}
-            <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-lg group">
-              <img
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000"
-                alt="AIFRAN SPORTS Sialkot Assembly Facility"
-                className="w-full h-64 sm:h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
-                <div className="text-white">
-                  <span className="text-xs font-mono uppercase text-amber-400 font-bold block">SIALKOT MANUFACTURING HQ</span>
-                  <p className="text-sm font-semibold text-slate-200">State-of-the-art cutting, stitching, and quality control lines.</p>
+                {/* Active Milestone Display Box */}
+                <div className="mt-4 p-5 rounded-xl bg-slate-900 text-white space-y-2 border border-slate-800 relative overflow-hidden">
+                  <div className="flex justify-between items-center">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                      MILESTONE {activeMilestoneIndex + 1} OF {TIMELINE_DATA.length}
+                    </span>
+                    <span className="text-xs font-mono text-slate-400 font-bold">{currentMilestone.year}</span>
+                  </div>
+
+                  <h4 className="text-base font-extrabold font-['Sora'] text-white uppercase">
+                    {currentMilestone.title}
+                  </h4>
+
+                  <p className="text-xs text-slate-300 font-['Inter'] leading-relaxed">
+                    {currentMilestone.description}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Timeline */}
-          <div className="lg:col-span-6 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
-            <h3 className="text-xl font-bold font-['Sora'] text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
-              <Award className="w-5 h-5 text-amber-600" /> Timeline & Expansion Journey
-            </h3>
-
-            <div className="relative pl-6 border-l-2 border-amber-500/40 space-y-8 font-['Inter']">
-              {TIMELINE_DATA.map((item, index) => (
-                <div key={index} className="relative group">
-                  {/* Bullet Marker */}
-                  <div className="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-amber-500 border-2 border-white shadow group-hover:scale-125 transition-transform"></div>
-
-                  <span className="text-xs font-mono font-extrabold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded border border-amber-200 inline-block mb-1">
-                    {item.year}
-                  </span>
-                  <h4 className="text-base font-bold text-slate-900 font-['Sora']">{item.title}</h4>
-                  <p className="text-xs text-slate-600 leading-relaxed mt-1">{item.description}</p>
+          {/* Right Column: Family-Owned Heritage Photo Card & Facility Stats */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm group">
+              <div className="relative h-64 sm:h-72 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000"
+                  alt="Sialkot Factory Assembly Line"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute top-3 left-3 bg-slate-900/90 text-white text-[10px] font-mono uppercase px-2.5 py-1 rounded border border-slate-700 font-bold tracking-wider">
+                  FAMILY-OWNED HERITAGE
                 </div>
-              ))}
+              </div>
+
+              <div className="p-4 bg-slate-900 text-slate-300 text-xs font-mono flex items-center justify-between border-t border-slate-800">
+                <span className="flex items-center gap-1.5 text-slate-200 font-semibold">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  Sialkot Factory Assembly Line
+                </span>
+                <span className="text-amber-400 uppercase">Active Production</span>
+              </div>
+            </div>
+
+            {/* Stat Cards Grid */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
+                  <Factory className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-lg font-extrabold font-['Sora'] text-slate-900 leading-none">
+                    65,000 SQ FT
+                  </div>
+                  <div className="text-[11px] font-sans font-medium text-slate-500 uppercase mt-0.5">
+                    MANUFACTURING FACILITY
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                  <Users className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-lg font-extrabold font-['Sora'] text-slate-900 leading-none">
+                    350+
+                  </div>
+                  <div className="text-[11px] font-sans font-medium text-slate-500 uppercase mt-0.5">
+                    CRAFTSMEN & TAILORS
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

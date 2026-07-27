@@ -71,36 +71,36 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCatalog }) => {
             </div>
             <div>
               <span className="text-lg sm:text-xl font-extrabold tracking-wider text-white font-['Sora'] block leading-none">
-                AIFRAN<span className="text-amber-500">.</span>SPORTS
+                AIFRAN <span className="text-amber-500">SPORTS</span>
               </span>
-              <span className="text-[10px] text-slate-400 font-mono tracking-widest uppercase block mt-0.5">
-                The international sports factory
+              <span className="text-[9px] text-amber-500 font-mono tracking-widest uppercase block mt-0.5 font-bold">
+                CUT • SEW • MANUFACTURE
               </span>
             </div>
           </button>
 
           {/* Desktop Nav Links */}
-          <div className="hidden lg:flex items-center space-x-7 font-['Manrope'] text-xs font-semibold uppercase tracking-wider text-slate-300">
+          <div className="hidden lg:flex items-center space-x-6 font-['Manrope'] text-xs font-bold uppercase tracking-wider text-slate-300">
             <button onClick={() => scrollToSection('about')} className="hover:text-amber-400 transition-colors">
-              About
+              ABOUT
             </button>
             <button onClick={() => scrollToSection('capabilities')} className="hover:text-amber-400 transition-colors">
-              Capabilities
+              CAPABILITIES
             </button>
             <button onClick={() => scrollToSection('products')} className="hover:text-amber-400 transition-colors">
-              Products
+              PRODUCTS
+            </button>
+            <button onClick={() => scrollToSection('why-us')} className="hover:text-amber-400 transition-colors">
+              WHY US
             </button>
             <button onClick={() => scrollToSection('quality')} className="hover:text-amber-400 transition-colors">
-              Quality
+              QUALITY
             </button>
             <button onClick={() => scrollToSection('industries')} className="hover:text-amber-400 transition-colors">
-              Industries
-            </button>
-            <button onClick={() => scrollToSection('certifications')} className="hover:text-amber-400 transition-colors">
-              Certifications
+              INDUSTRIES
             </button>
             <button onClick={() => scrollToSection('contact')} className="hover:text-amber-400 transition-colors">
-              Contact
+              CONTACT
             </button>
           </div>
 

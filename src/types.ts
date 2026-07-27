@@ -5,6 +5,9 @@ export interface ProductItem {
   image: string;
   shortDescription: string;
   materials: string;
+  specCode?: string;
+  brandingOptions?: string[];
+  keyFeatures?: string[];
 }
 
 export interface CapabilityItem {
@@ -13,6 +16,9 @@ export interface CapabilityItem {
   description: string;
   iconName: string;
   features: string[];
+  equipmentType?: string;
+  dailyOutput?: string;
+  precisionTolerance?: string;
 }
 
 export interface QualityStep {
@@ -26,6 +32,7 @@ export interface QualityStep {
 
 export interface TimelineMilestone {
   year: string;
+  label: string;
   title: string;
   description: string;
 }
