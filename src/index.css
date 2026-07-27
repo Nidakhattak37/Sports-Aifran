@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+html {
+  zoom: 100%;
+}
+
+@media (min-width: 1024px) {
+  html {
+    zoom: 90%;
+  }
+}
