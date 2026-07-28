@@ -83,7 +83,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedProdu
             LET’S BUILD SOMETHING <span className="text-[#84A93C]">GREAT TOGETHER</span>
           </h2>
 
-          <p className="text-slate-600 font-['Inter'] text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="text-slate-600 font-['Plus_Jakarta_Sans',sans-serif] text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed font-medium">
             Ready to initiate a custom tech pack, request factory sample evaluation, or negotiate container-scale OEM production? Our engineering team is at your disposal.
           </p>
         </div>
@@ -92,40 +92,40 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedProdu
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch max-w-6xl mx-auto">
 
           {/* Left Dark Card: B2B DIRECT DESK */}
-          <div className="lg:col-span-5 bg-[#0A0F1D] rounded-3xl border border-slate-800/90 p-6 sm:p-8 flex flex-col justify-between space-y-8 shadow-2xl font-['Inter']">
+          <div className="lg:col-span-5 bg-[#0A0F1D] rounded-3xl border border-slate-800/90 p-6 sm:p-8 flex flex-col justify-between space-y-8 shadow-2xl font-['Plus_Jakarta_Sans',sans-serif]">
             <div className="space-y-6">
               {/* Online Pill */}
-              <div className="inline-flex items-center gap-2 bg-[#022c22] border border-emerald-800/80 text-emerald-400 text-[10px] font-mono font-extrabold px-3 py-1 rounded-full tracking-wider">
+              <div className="inline-flex items-center gap-2 bg-[#022c22] border border-emerald-800/80 text-emerald-400 text-[10px] font-['JetBrains_Mono',monospace] font-extrabold px-3 py-1 rounded-full tracking-wider">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span>B2B DIRECT DESK • ONLINE</span>
               </div>
 
               {/* Title & Description */}
               <div className="space-y-2">
-                <h3 className="text-xl sm:text-2xl font-black font-['Sora'] text-white uppercase tracking-tight">
+                <h3 className="text-xl sm:text-2xl font-black font-['Outfit',sans-serif] text-white uppercase tracking-tight">
                   AIFRAN SPORTS <span className="text-slate-400 font-bold">HQ</span>
                 </h3>
-                <p className="text-xs text-slate-400 leading-relaxed font-normal">
+                <p className="text-xs text-slate-400 leading-relaxed font-normal font-['Plus_Jakarta_Sans',sans-serif]">
                   Direct connection with our senior manufacturing engineers and international procurement team.
                 </p>
               </div>
 
-              {/* Dark Inner Info Boxes matching screenshot */}
-              <div className="space-y-3 font-['Inter']">
+              {/* Dark Inner Info Boxes */}
+              <div className="space-y-3 font-['Plus_Jakarta_Sans',sans-serif]">
                 {/* Email Box */}
                 <div className="bg-[#050811] border border-slate-800/90 rounded-2xl p-4 flex items-center gap-4 transition-all hover:border-slate-700">
                   <div className="p-2.5 rounded-xl bg-orange-500/10 border border-orange-500/20 text-[#EA580C] shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-[10px] font-mono font-extrabold text-slate-500 uppercase tracking-wider">
+                    <div className="text-[10px] font-['JetBrains_Mono',monospace] font-extrabold text-slate-500 uppercase tracking-wider">
                       PRIMARY INQUIRY EMAIL
                     </div>
                     <a
-                      href="mailto:aifransportsllc@gmail.com"
-                      className="text-xs sm:text-sm font-bold font-mono text-white hover:text-[#EA580C] transition-colors"
+                      href="mailto:ali@aifransports.com"
+                      className="text-xs sm:text-sm font-semibold font-['JetBrains_Mono',monospace] text-white hover:text-[#EA580C] transition-colors"
                     >
-                      aifransportsllc@gmail.com
+                      ali@aifransports.com
                     </a>
                   </div>
                 </div>
@@ -135,33 +135,51 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedProdu
                   <div className="p-2.5 rounded-xl bg-lime-500/10 border border-lime-500/20 text-[#84A93C] shrink-0">
                     <Phone className="w-4 h-4" />
                   </div>
-                  <div>
-                    <div className="text-[10px] font-mono font-extrabold text-slate-500 uppercase tracking-wider">
-                      DIRECT PHONE / WHATSAPP
+                  <div className="space-y-0.5">
+                    <div className="text-[10px] font-['JetBrains_Mono',monospace] font-extrabold text-slate-500 uppercase tracking-wider">
+                      DIRECT PHONE & WHATSAPP
                     </div>
                     <a
-                      href="tel:+923008615422"
-                      className="text-xs sm:text-sm font-bold font-mono text-white hover:text-[#84A93C] transition-colors block"
+                      href="tel:+923341114728"
+                      className="text-xs sm:text-sm font-semibold font-['JetBrains_Mono',monospace] text-white hover:text-[#84A93C] transition-colors block"
                     >
-                      +92 300 861 5422
+                      PK: +92 334 111 4728
                     </a>
-                    <div className="text-[10px] text-slate-500 font-mono mt-0.5">
-                      US Toll-Free: +1 (800) AIFRAN-TACTICAL
-                    </div>
+                    <a
+                      href="tel:+19179096492"
+                      className="text-xs sm:text-sm font-semibold font-['JetBrains_Mono',monospace] text-slate-300 hover:text-[#84A93C] transition-colors block"
+                    >
+                      USA: +1 917 909 6492
+                    </a>
                   </div>
                 </div>
 
-                {/* Plant Box */}
+                {/* Pakistan Address Box */}
                 <div className="bg-[#050811] border border-slate-800/90 rounded-2xl p-4 flex items-center gap-4 transition-all hover:border-slate-700">
                   <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 shrink-0">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-[10px] font-mono font-extrabold text-slate-500 uppercase tracking-wider">
-                      FACTORY & LOGISTICS PLANT
+                    <div className="text-[10px] font-['JetBrains_Mono',monospace] font-extrabold text-slate-500 uppercase tracking-wider">
+                      PAKISTAN FACTORY & HQ
                     </div>
-                    <div className="text-xs font-bold font-mono text-slate-200 mt-0.5 leading-snug">
-                      Plot 42-A, Small Industrial Estate #2, Sialkot 51310, Punjab, Pakistan
+                    <div className="text-xs font-semibold font-['Plus_Jakarta_Sans',sans-serif] text-slate-200 mt-0.5 leading-snug">
+                      Behind Fazal Market, Mujahid Road, Sialkot 51310, Pakistan
+                    </div>
+                  </div>
+                </div>
+
+                {/* USA Address Box */}
+                <div className="bg-[#050811] border border-slate-800/90 rounded-2xl p-4 flex items-center gap-4 transition-all hover:border-slate-700">
+                  <div className="p-2.5 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 shrink-0">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-[10px] font-['JetBrains_Mono',monospace] font-extrabold text-slate-500 uppercase tracking-wider">
+                      USA DESK ADDRESS
+                    </div>
+                    <div className="text-xs font-semibold font-['Plus_Jakarta_Sans',sans-serif] text-slate-200 mt-0.5 leading-snug">
+                      7116, Avenue X, Brooklyn, New York 11234, USA
                     </div>
                   </div>
                 </div>
@@ -169,8 +187,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedProdu
             </div>
           </div>
 
-          {/* Right Light Card: Form matching screenshot */}
-          <div className="lg:col-span-7 bg-[#F8FAFC] rounded-3xl border border-slate-200 p-6 sm:p-8 text-slate-900 shadow-xl font-['Inter'] flex flex-col justify-between">
+          {/* Right Light Card: Form */}
+          <div className="lg:col-span-7 bg-[#F8FAFC] rounded-3xl border border-slate-200 p-6 sm:p-8 text-slate-900 shadow-xl font-['Plus_Jakarta_Sans',sans-serif] flex flex-col justify-between">
             {submitted ? (
               <div className="py-12 text-center space-y-6">
                 <div className="w-16 h-16 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-700 flex items-center justify-center mx-auto">
@@ -178,13 +196,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedProdu
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-2xl font-bold font-['Sora'] text-slate-900">
+                  <h3 className="text-2xl font-bold font-['Outfit',sans-serif] text-slate-900">
                     Thank you! Request Received.
                   </h3>
                   <p className="text-xs text-slate-600 max-w-md mx-auto">
                     Your inquiry has been logged in our engineering queue under tracking ID:
                   </p>
-                  <div className="inline-block bg-slate-200 border border-slate-300 px-4 py-2 rounded-xl font-mono font-bold text-[#EA580C] text-sm tracking-wider my-2">
+                  <div className="inline-block bg-slate-200 border border-slate-300 px-4 py-2 rounded-xl font-['JetBrains_Mono',monospace] font-bold text-[#EA580C] text-sm tracking-wider my-2">
                     {rfqTrackingId}
                   </div>
                 </div>
@@ -202,7 +220,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedProdu
                       message: '',
                     });
                   }}
-                  className="px-6 py-2.5 rounded-xl bg-slate-900 text-white font-['Manrope'] text-xs font-bold uppercase tracking-wider hover:bg-slate-800 transition-colors"
+                  className="px-6 py-2.5 rounded-xl bg-slate-900 text-white font-['Outfit',sans-serif] text-xs font-bold uppercase tracking-wider hover:bg-slate-800 transition-colors"
                 >
                   Submit Another Inquiry
                 </button>
@@ -211,18 +229,18 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedProdu
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Form Header */}
                 <div className="space-y-1">
-                  <div className="text-[10px] font-mono font-extrabold uppercase tracking-widest text-slate-500">
+                  <div className="text-[10px] font-['JetBrains_Mono',monospace] font-extrabold uppercase tracking-widest text-slate-500">
                     OFFICIAL OEM QUOTE REQUEST FORM
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-black font-['Sora'] text-slate-900 uppercase tracking-tight">
+                  <h3 className="text-xl sm:text-2xl font-black font-['Outfit',sans-serif] text-slate-900 uppercase tracking-tight">
                     REQUEST A <span className="text-[#EA580C]">QUOTE</span>
                   </h3>
                 </div>
 
-                {/* Field Rows matching screenshot */}
+                {/* Field Rows */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1">
-                    <label className="text-[10px] font-mono font-extrabold text-slate-700 uppercase tracking-wider">
+                    <label className="text-[10px] font-['JetBrains_Mono',monospace] font-bold text-slate-700 uppercase tracking-wider">
                       FULL NAME *
                     </label>
                     <input
@@ -232,12 +250,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedProdu
                       value={formData.fullName}
                       onChange={handleChange}
                       placeholder="e.g. Capt. James Vance"
-                      className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-['Inter'] text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#EA580C] shadow-xs"
+                      className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-['Plus_Jakarta_Sans',sans-serif] text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#EA580C] shadow-xs"
                     />
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[10px] font-mono font-extrabold text-slate-700 uppercase tracking-wider">
+                    <label className="text-[10px] font-['JetBrains_Mono',monospace] font-bold text-slate-700 uppercase tracking-wider">
                       COMPANY / ORGANIZATION *
                     </label>
                     <input
@@ -247,14 +265,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedProdu
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="e.g. Vanguard Defense Systems"
-                      className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-['Inter'] text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#EA580C] shadow-xs"
+                      className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-['Plus_Jakarta_Sans',sans-serif] text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#EA580C] shadow-xs"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1">
-                    <label className="text-[10px] font-mono font-extrabold text-slate-700 uppercase tracking-wider">
+                    <label className="text-[10px] font-['JetBrains_Mono',monospace] font-bold text-slate-700 uppercase tracking-wider">
                       WORK EMAIL *
                     </label>
                     <input
@@ -264,12 +282,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedProdu
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="procurement@company.com"
-                      className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-['Inter'] text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#EA580C] shadow-xs"
+                      className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-['Plus_Jakarta_Sans',sans-serif] text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#EA580C] shadow-xs"
                     />
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[10px] font-mono font-extrabold text-slate-700 uppercase tracking-wider">
+                    <label className="text-[10px] font-['JetBrains_Mono',monospace] font-bold text-slate-700 uppercase tracking-wider">
                       PHONE / WHATSAPP
                     </label>
                     <input
@@ -278,14 +296,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedProdu
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+1 (555) 019-2834"
-                      className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-['Inter'] text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#EA580C] shadow-xs"
+                      className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-['Plus_Jakarta_Sans',sans-serif] text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#EA580C] shadow-xs"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1">
-                    <label className="text-[10px] font-mono font-extrabold text-slate-700 uppercase tracking-wider">
+                    <label className="text-[10px] font-['JetBrains_Mono',monospace] font-bold text-slate-700 uppercase tracking-wider">
                       COUNTRY
                     </label>
                     <input
@@ -294,19 +312,19 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedProdu
                       value={formData.country}
                       onChange={handleChange}
                       placeholder="e.g. United States, Germany"
-                      className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-['Inter'] text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#EA580C] shadow-xs"
+                      className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-['Plus_Jakarta_Sans',sans-serif] text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#EA580C] shadow-xs"
                     />
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[10px] font-mono font-extrabold text-slate-700 uppercase tracking-wider">
+                    <label className="text-[10px] font-['JetBrains_Mono',monospace] font-bold text-slate-700 uppercase tracking-wider">
                       PRODUCT INTEREST
                     </label>
                     <select
                       name="productInterest"
                       value={formData.productInterest}
                       onChange={handleChange}
-                      className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-['Inter'] text-slate-800 focus:outline-none focus:border-[#EA580C] shadow-xs"
+                      className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-['Plus_Jakarta_Sans',sans-serif] text-slate-800 focus:outline-none focus:border-[#EA580C] shadow-xs"
                     >
                       <option value="Tactical Gloves">Tactical Gloves</option>
                       <option value="Combat Uniforms">Combat Uniforms</option>
@@ -323,7 +341,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedProdu
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[10px] font-mono font-extrabold text-slate-700 uppercase tracking-wider">
+                  <label className="text-[10px] font-['JetBrains_Mono',monospace] font-bold text-slate-700 uppercase tracking-wider">
                     MESSAGE / SPEC REQUIREMENTS
                   </label>
                   <textarea
@@ -332,14 +350,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedProdu
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Provide details on target quantity, material preferences (CORDURA®, YKK, Nomex), custom branding options, or sample timeline..."
-                    className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-['Inter'] text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#EA580C] shadow-xs resize-none"
+                    className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs font-['Plus_Jakarta_Sans',sans-serif] text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#EA580C] shadow-xs resize-none"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3.5 rounded-xl bg-[#EA580C] hover:bg-[#d94e07] text-white font-['Manrope'] font-extrabold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2"
+                  className="w-full py-3.5 rounded-xl bg-[#EA580C] hover:bg-[#d94e07] text-white font-['Outfit',sans-serif] font-extrabold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
                 >
                   {loading ? (
                     <>

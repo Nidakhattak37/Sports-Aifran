@@ -4,10 +4,9 @@ import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
 import { CapabilitiesSection } from './components/CapabilitiesSection';
 import { ProductsSection } from './components/ProductsSection';
-import { WhyChooseUs } from './components/WhyChooseUs';
 import { QualityProcess } from './components/QualityProcess';
 import { IndustriesSection } from './components/IndustriesSection';
-import { CertificationsSection } from './components/CertificationsSection';
+import { AlibabaSection } from './components/AlibabaSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -27,7 +26,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0B0B] text-slate-100 font-['Inter'] selection:bg-amber-500 selection:text-black">
+    <div className="min-h-screen bg-[#0B0B0B] text-slate-100 font-['Plus_Jakarta_Sans',sans-serif] selection:bg-amber-500 selection:text-black">
       {/* Navbar Header */}
       <Navbar onOpenCatalog={() => setIsCatalogOpen(true)} />
 
@@ -45,17 +44,14 @@ export default function App() {
         {/* B2B Products Catalog [Light Theme] */}
         <ProductsSection onSelectProductForQuote={handleSelectProductForQuote} />
 
-        {/* Why Choose Us [Dark Theme] */}
-        <WhyChooseUs />
-
         {/* Six-Stage Quality Process [Light Theme] */}
         <QualityProcess />
 
         {/* Industries Served [Dark Theme] */}
         <IndustriesSection />
 
-        {/* Factory Certifications [Light Theme] */}
-        <CertificationsSection />
+        {/* Verified Alibaba Gold Suppliers */}
+        <AlibabaSection />
 
         {/* Client Endorsements [Dark Theme] */}
         <TestimonialsSection />

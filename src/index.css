@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 html {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   zoom: 100%;
 }
 
@@ -8,4 +9,16 @@ html {
   html {
     zoom: 90%;
   }
+}
+
+.font-sans-clean {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+.font-tech-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.font-btn {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
 }
