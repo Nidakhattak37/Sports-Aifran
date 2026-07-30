@@ -1,5 +1,6 @@
 import React from 'react';
-import { Shield, Mail, Phone, MapPin, ExternalLink, Linkedin, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, ExternalLink, Linkedin, Instagram } from 'lucide-react';
+import { AifranLogo } from './AifranLogo';
 
 export const Footer: React.FC = () => {
   const scrollToSection = (id: string) => {
@@ -14,19 +15,7 @@ export const Footer: React.FC = () => {
           
           {/* Brand Info */}
           <div className="lg:col-span-5 space-y-5">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#0A0F1D] border border-slate-800 flex items-center justify-center text-[#EA580C] shadow-md">
-                <Shield className="w-5 h-5 stroke-[2.5]" />
-              </div>
-              <div>
-                <span className="text-xl font-extrabold tracking-wider text-white font-['Outfit',sans-serif] block leading-none">
-                  AIFRAN <span className="text-[#84A93C]">SPORTS</span>
-                </span>
-                <span className="text-[9px] text-slate-400 font-['JetBrains_Mono',monospace] tracking-widest uppercase block mt-1 font-bold">
-                  CUT • SEW • MANUFACTURE
-                </span>
-              </div>
-            </div>
+            <AifranLogo className="h-10 w-auto text-white" variant="full" showTagline={true} accentColor="#84A93C" />
 
             <p className="text-slate-400 leading-relaxed text-xs max-w-md font-['Plus_Jakarta_Sans',sans-serif]">
               A premier B2B OEM manufacturing supplier of tactical gear, combat apparel, military gloves, and duty equipment supplying international defense contractors and private labels worldwide.

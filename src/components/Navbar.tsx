@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Shield, FileText, Phone, Mail } from 'lucide-react';
+import { Menu, X, FileText, Phone, Mail } from 'lucide-react';
+import { AifranLogo } from './AifranLogo';
 
 interface NavbarProps {
   onOpenCatalog: () => void;
@@ -64,19 +65,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCatalog }) => {
           {/* Brand Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-2.5 text-left group cursor-pointer"
+            className="flex items-center text-left group cursor-pointer hover:opacity-95 transition-opacity"
           >
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-[#0B0B0B] font-extrabold text-lg shadow-md group-hover:scale-105 transition-transform">
-              <Shield className="w-5 h-5 text-[#0B0B0B] stroke-[2.5]" />
-            </div>
-            <div>
-              <span className="text-lg sm:text-xl font-extrabold tracking-wider text-white font-['Outfit',sans-serif] block leading-none">
-                AIFRAN <span className="text-amber-500">SPORTS</span>
-              </span>
-              <span className="text-[9px] text-amber-500 font-['JetBrains_Mono',monospace] tracking-widest uppercase block mt-0.5 font-bold">
-                CUT • SEW • MANUFACTURE
-              </span>
-            </div>
+            <AifranLogo className="h-9 w-auto text-white" variant="full" showTagline={true} accentColor="#EA580C" />
           </button>
 
           {/* Desktop Nav Links */}

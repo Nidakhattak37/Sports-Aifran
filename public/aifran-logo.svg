@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 450" fill="none">
+  <!-- Transparent Background Vector Logo for AIFRAN SPORTS -->
+  <g fill="#FFFFFF">
+    <!-- Left sharp diagonal outer blade -->
+    <path d="M 248 10 L 72 360 L 138 298 L 212 148 Z"/>
+    
+    <!-- Main A chassis -->
+    <path d="M 268 70 L 180 252 L 272 208 L 332 208 L 388 305 L 342 305 L 315 258 L 225 258 L 205 296 L 160 296 L 268 70 Z"/>
+    
+    <!-- Slashed dynamic right wing -->
+    <path d="M 180 248 L 430 140 L 320 208 L 225 228 Z"/>
+  </g>
+  
+  <!-- Typography Wordmark -->
+  <text x="250" y="420" text-anchor="middle" fill="#FFFFFF" font-family="'Outfit', 'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="46" letter-spacing="0.06em">AIFRAN SPORTS</text>
+</svg>

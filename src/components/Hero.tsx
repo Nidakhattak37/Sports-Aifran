@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, FileText, Shield, Globe2, Settings } from 'lucide-react';
+import factoryImg from '../assets/images/factory_glove_craftsmen_1785395477185.jpg';
 
 interface HeroProps {
   onOpenCatalog: () => void;
@@ -100,23 +101,35 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCatalog }) => {
             </div>
           </div>
 
-          {/* Right Column: Circular Champions League Soccer Ball Image Frame */}
-          <div className="lg:col-span-5 flex justify-center items-center relative">
-            <div className="relative w-72 h-72 sm:w-96 sm:h-96 flex items-center justify-center">
-              {/* Radial glow background */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-amber-500/10 via-[#84A93C]/10 to-orange-500/10 blur-2xl"></div>
+          {/* Right Column: Rectangular Factory Showcase Image fitting on right side */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative w-full max-w-lg mx-auto">
+              {/* Radial ambient background glow */}
+              <div className="absolute -inset-1 rounded-[2.5rem] bg-gradient-to-r from-amber-500/20 via-[#84A93C]/20 to-orange-500/20 blur-xl opacity-75"></div>
 
-              {/* Outer decorative ring */}
-              <div className="absolute inset-0 rounded-full border border-slate-800"></div>
+              {/* Main Rectangular Image Container */}
+              <div className="relative rounded-[2rem] border border-slate-700/80 bg-slate-900/90 shadow-[0_20px_60px_rgba(0,0,0,0.85)] overflow-hidden group">
+                
+                {/* Main Image - Factory Craftsmen */}
+                <div className="relative h-[380px] sm:h-[480px] w-full overflow-hidden">
+                  <img
+                    src={factoryImg}
+                    alt="AIFRAN SPORTS Craftsmen Manufacturing Leather & Tactical Gloves"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                    referrerPolicy="no-referrer"
+                  />
 
-              {/* Main Circular Image Frame */}
-              <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full p-2 bg-gradient-to-b from-slate-700/50 via-slate-800/60 to-slate-950 border border-slate-700/80 shadow-[0_0_60px_rgba(0,0,0,0.8)] relative z-10 overflow-hidden group">
-                <img
-                  src="https://images.unsplash.com/photo-1614632537197-38a17061c2bd?auto=format&fit=crop&q=80&w=800"
-                  alt="AIFRAN SPORTS Football & Manufacturing"
-                  className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 rounded-full shadow-[inset_0_0_40px_rgba(0,0,0,0.7)] pointer-events-none"></div>
+                  {/* Gentle gradient edges to blend into hero section */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/80 via-transparent to-[#0B0B0B]/40 pointer-events-none" />
+                </div>
+
+                {/* Floating Top Badge: Plant Status */}
+                <div className="absolute top-4 left-4 z-20">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950/80 backdrop-blur-md border border-slate-700/80 text-white font-['JetBrains_Mono',monospace] text-[10px] sm:text-xs font-bold tracking-wider shadow-lg">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>SIALKOT PLANT • ACTIVE</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
